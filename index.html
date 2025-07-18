@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberElites Farewell - A Heartfelt Tribute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #8e44ad 75%, #6c5ce7 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating particles animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(186,85,211,0.6) 100%);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Neon glow animations */
+        @keyframes neonGlow {
+            0% { 
+                text-shadow: 
+                    0 0 10px #ba55d3,
+                    0 0 20px #ba55d3,
+                    0 0 30px #ba55d3,
+                    0 0 40px #ba55d3,
+                    2px 2px 4px rgba(0,0,0,0.3);
+            }
+            100% { 
+                text-shadow: 
+                    0 0 20px #ba55d3,
+                    0 0 30px #ba55d3,
+                    0 0 40px #ba55d3,
+                    0 0 50px #ba55d3,
+                    0 0 60px #ba55d3,
+                    2px 2px 4px rgba(0,0,0,0.3);
+            }
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 5px #9b59b6,
+                    0 0 10px #9b59b6,
+                    0 0 15px #9b59b6,
+                    1px 1px 2px rgba(0,0,0,0.5);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 10px #9b59b6,
+                    0 0 20px #9b59b6,
+                    0 0 25px #9b59b6,
+                    0 0 30px #9b59b6,
+                    1px 1px 2px rgba(0,0,0,0.5);
+            }
+        }
+
+        /* Floating neon shapes */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatShape 8s infinite ease-in-out;
+        }
+
+        .floating-shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid rgba(186, 85, 211, 0.3);
+            border-radius: 0;
+            box-shadow: 0 0 20px rgba(186, 85, 211, 0.5);
+        }
+
+        .floating-shape.circle {
+            width: 20px;
+            height: 20px;
+            background: rgba(155, 89, 182, 0.3);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+        }
+
+        .floating-shape.square {
+            width: 18px;
+            height: 18px;
+            background: rgba(108, 92, 231, 0.3);
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+        }
+
+        @keyframes floatShape {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg); 
+                opacity: 0.3; 
+            }
+            25% { 
+                transform: translateY(-30px) translateX(20px) rotate(90deg); 
+                opacity: 0.8; 
+            }
+            50% { 
+                transform: translateY(-60px) translateX(-10px) rotate(180deg); 
+                opacity: 1; 
+            }
+            75% { 
+                transform: translateY(-30px) translateX(-30px) rotate(270deg); 
+                opacity: 0.6; 
+            }
+        }
+
+        /* Thank you section */
+        .thank-you-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+            margin-top: 2rem;
+        }
+
+        .thank-you-section h2 {
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 
+                0 0 10px #ba55d3,
+                0 0 20px #ba55d3,
+                0 0 30px #ba55d3,
+                2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+            animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        .thank-you-text {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(186,85,211,0.1) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(138,43,226,0.3) 100%);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .dev-credit {
+            color: #ba55d3;
+            font-weight: bold;
+            text-shadow: 
+                0 0 5px #ba55d3,
+                0 0 10px #ba55d3;
+            animation: neonPulse 3s ease-in-out infinite;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 
+                0 0 10px #ba55d3,
+                0 0 20px #ba55d3,
+                0 0 30px #ba55d3,
+                0 0 40px #ba55d3,
+                2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out, neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Flip Card Styles */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 400px;
+            perspective: 1000px;
+            cursor: pointer;
+            animation: slideInUp 0.8s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .flip-card:hover {
+            transform: scale(1.05);
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .flip-card-front {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(186,85,211,0.1) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, rgba(138,43,226,0.9) 0%, rgba(123,31,162,0.9) 100%);
+            color: white;
+            transform: rotateY(180deg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 
+                0 0 5px #9b59b6,
+                0 0 10px #9b59b6,
+                0 0 15px #9b59b6,
+                1px 1px 2px rgba(0,0,0,0.5);
+            animation: neonPulse 3s ease-in-out infinite;
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+        }
+
+        .quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(186,85,211,0.1) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            animation: modalFadeIn 0.5s ease-out;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 
+                0 0 10px #ba55d3,
+                0 0 20px #ba55d3,
+                0 0 30px #ba55d3,
+                1px 1px 2px rgba(0,0,0,0.5);
+            animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        .modal-quote {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #ba55d3;
+        }
+
+        /* Flying elements animation */
+        .flying-element {
+            position: absolute;
+            pointer-events: none;
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            animation: fly 3s ease-out forwards;
+        }
+
+        @keyframes fly {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+            100% { transform: translate(200px, -200px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .header p { font-size: 1.2rem; }
+            .cards-container { grid-template-columns: 1fr; padding: 1rem; }
+            .flip-card { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles"></div>
+
+    <!-- Floating Neon Shapes -->
+    <div class="floating-shapes"></div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>CyberElites Farewell</h1>
+        <p>A heartfelt tribute to our incredible seniors who have guided us with their wisdom, inspired us with their dedication, and shaped our journey in ways we'll never forget. Your legacy lives on in every line of code we write.</p>
+    </div>
+
+        
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p>Developed with 💜 by <span class="dev-credit">Masooma</span></p>
+        </div>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="cards-container">
+        <!-- Card 1 -->
+        <div class="flip-card" onclick="openModal('modal1')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="static/img/noman.png" alt="Senior 1" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Nomaan</h3>
+                        <p class="card-subtitle">Tech Lead & Mentor(President)</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="quote">"Your guidance turned our curiosity into expertise. Thank you for showing us that with passion and perseverance, we can build the future."</div>
+                    <div class="quote-author">- CyberElites Team</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flip-card" onclick="openModal('modal2')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="static/img/black.png" alt="Senior 2" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Saniya Inayath</h3>
+                        <p class="card-subtitle">Innovation Pioneer(Secretary)</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="quote">"You taught us that innovation isn't just about technology—it's about solving problems that matter. Your vision continues to inspire us."</div>
+                    <div class="quote-author">- CyberElites Team</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flip-card" onclick="openModal('modal3')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="static/img/ns.jpeg" alt="Senior 3" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Nashwan</h3>
+                        <p class="card-subtitle">Code Architect(designer)</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="quote">"Every algorithm you shared, every bug you helped us fix, every late night you spent with us—all of it has made us better developers and better people."</div>
+                    <div class="quote-author">- CyberElites Team</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="flip-card" onclick="openModal('modal4')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="static/img/purple.png" alt="Senior 4" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Aesha</h3>
+                        <p class="card-subtitle">Team Builder</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="quote">"You showed us that the best code is written by teams who care about each other. Thank you for building not just software, but a community."</div>
+                    <div class="quote-author">- CyberElites Team</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="flip-card" onclick="openModal('modal5')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="static/img/vmo.jpeg" alt="Senior 5" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Vamshi</h3>
+                        <p class="card-subtitle">Treasurer</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="quote">"Your dedication to security taught us that protecting others is the highest calling of technology. May your future be as secure as the systems you build."</div>
+                    <div class="quote-author">- CyberElites Team</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="flip-card" onclick="openModal('modal6')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="static/img/tem.jpg" alt="Senior 6" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">US</h3>
+                        <p class="card-subtitle">TEAM</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="quote">"You didn't just teach us to code—you taught us to dream. Your vision of what technology can achieve will forever guide our path."</div>
+                    <div class="quote-author">- CyberElites Team</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <img src="static/img/noman9.png" alt="Senior 1" class="modal-image">
+            <h2 class="modal-title">NOMAAN</h2>
+            <p class="modal-quote">"Your guidance turned our curiosity into expertise. Thank you for showing us that with passion and perseverance, we can build the future. We'll carry your lessons with us wherever we go."</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <img src="static/img/saniya.png" alt="Senior 2" class="modal-image">
+            <h2 class="modal-title">SANIYA</h2>
+            <p class="modal-quote">"You taught us that innovation isn't just about technology—it's about solving problems that matter. Your vision continues to inspire us to create meaningful solutions."</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <img src="static/img/nsh.jpeg" alt="Senior 3" class="modal-image">
+            <h2 class="modal-title">NASHWAN</h2>
+            <p class="modal-quote">"Every algorithm you shared, every bug you helped us fix, every late night you spent with us—all of it has made us better developers and better people."</p>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <img src="static/img/ayesha.png" alt="Senior 4" class="modal-image">
+            <h2 class="modal-title">AYESHA</h2>
+            <p class="modal-quote">"You showed us that the best code is written by teams who care about each other. Thank you for building not just software, but a community that will last forever."</p>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <img src="static/img/vm.jpeg" alt="Senior 5" class="modal-image">
+            <h2 class="modal-title">VAMSHI</h2>
+            <p class="modal-quote">"Your dedication to security taught us that protecting others is the highest calling of technology. May your future be as secure as the systems you build."</p>
+        </div>
+    </div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <img src="static/img/team.jpeg" alt="Senior 6" class="modal-image">
+            <h2 class="modal-title">TEAM</h2>
+            <p class="modal-quote">"You didn't just teach us to code—you taught us to dream. Your vision of what technology can achieve will forever guide our path forward."</p>
+        </div>
+    </div>
+
+     <!-- Footer -->
+    <div class="footer">
+        <!-- Thank You Section -->
+        <div class="thank-you-section">
+            <h2>Thank You!</h2>
+            <div class="thank-you-text">
+                <p>As we bid farewell to our incredible seniors, we want to express our deepest gratitude for everything you've done for us. Your mentorship, patience, and unwavering support have shaped not only our technical skills but also our character. You've shown us that being a great developer means more than just writing code—it means building solutions that make a difference, working collaboratively, and never stopping learning.</p>
+                <br>
+                <p>Though you're moving on to new adventures, the lessons you've taught us and the memories we've shared will forever be a part of the CyberElites family. We promise to carry forward your legacy of excellence, innovation, and kindness to the next generation of developers.</p>
+                <br>
+                <p><strong>Thank you for being our guides, our mentors, and our friends. We wish you all the success and happiness in your future endeavors!</strong></p>
+                <br>
+                <p style="font-size: 1.5rem; color: #ba55d3; text-shadow: 0 0 10px #ba55d3; font-weight: bold;">💜 With Love & Gratitude,<br>The CyberElites Team 💜</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p>Developed with 💜 by <span class="dev-credit">Masooma</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Create floating neon shapes
+        function createFloatingShapes() {
+            const shapesContainer = document.querySelector('.floating-shapes');
+            const shapeTypes = ['triangle', 'circle', 'square'];
+            const shapeCount = 15;
+
+            for (let i = 0; i < shapeCount; i++) {
+                const shape = document.createElement('div');
+                const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+                shape.className = `floating-shape ${shapeType}`;
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.top = Math.random() * 100 + '%';
+                shape.style.animationDelay = Math.random() * 8 + 's';
+                shape.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                shapesContainer.appendChild(shape);
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            
+            // Create flying elements
+            createFlyingElements();
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+
+        // Create flying elements animation
+        function createFlyingElements() {
+            const elements = ['✨', '💫', '⭐', '🌟', '💜', '🚀', '💎', '🎯'];
+            
+            for (let i = 0; i < 8; i++) {
+                const flyingElement = document.createElement('div');
+                flyingElement.className = 'flying-element';
+                flyingElement.textContent = elements[Math.floor(Math.random() * elements.length)];
+                flyingElement.style.left = Math.random() * window.innerWidth + 'px';
+                flyingElement.style.top = Math.random() * window.innerHeight + 'px';
+                flyingElement.style.animationDelay = Math.random() * 0.5 + 's';
+                
+                document.body.appendChild(flyingElement);
+                
+                // Remove element after animation
+                setTimeout(() => {
+                    flyingElement.remove();
+                }, 3000);
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize particles when page loads
+        window.addEventListener('load', function() {
+            createParticles();
+            createFloatingShapes();
+        });
+
+        // Add staggered animation to cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.flip-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = (index * 0.1) + 's';
+            });
+        });
+    </script>
+</body>
+</html>
